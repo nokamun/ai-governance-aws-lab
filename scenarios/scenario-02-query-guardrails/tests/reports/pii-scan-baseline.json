@@ -1,0 +1,65 @@
+Status: Succeeded
+Test Event Name: PIIScanTest
+
+Response:
+{
+  "scanner": "regex-based PII detection",
+  "production_equivalent": "Amazon Comprehend or Amazon Macie",
+  "patterns_evaluated": 14,
+  "scan_summary": {
+    "overall_status": "CLEAN",
+    "bucket": "driftlock-ai-knowledge-lab-east1",
+    "prefix": "public-research/",
+    "total_documents_scanned": 2,
+    "clean": 2,
+    "pii_detected": 0,
+    "errors": 0,
+    "action_required": "None"
+  },
+  "document_results": [
+    {
+      "document": "public-research/ai_governance_notes.txt",
+      "status": "CLEAN",
+      "findings": [],
+      "pii_types": [],
+      "total_findings": 0,
+      "action_required": "None"
+    },
+    {
+      "document": "public-research/market_trends.txt",
+      "status": "CLEAN",
+      "findings": [],
+      "pii_types": [],
+      "total_findings": 0,
+      "action_required": "None"
+    }
+  ]
+}
+
+The area below shows the last 4 KB of the execution log.
+
+Function Logs:
+[INFO]	2026-03-16T20:47:19.441Z		Found credentials in environment variables.
+START RequestId: 657275d1-7b74-4973-be78-2a1e7749c626 Version: $LATEST
+[INFO]	2026-03-16T20:47:19.638Z	657275d1-7b74-4973-be78-2a1e7749c626	Starting regex-based PII scan of knowledge repository
+[INFO]	2026-03-16T20:47:19.638Z	657275d1-7b74-4973-be78-2a1e7749c626	Bucket: driftlock-ai-knowledge-lab-east1 | Prefix: public-research/
+[INFO]	2026-03-16T20:47:19.638Z	657275d1-7b74-4973-be78-2a1e7749c626	Active PII patterns: 14
+[INFO]	2026-03-16T20:47:19.932Z	657275d1-7b74-4973-be78-2a1e7749c626	Found 3 objects — beginning scan
+[INFO]	2026-03-16T20:47:19.932Z	657275d1-7b74-4973-be78-2a1e7749c626	Scanning: public-research/ai_governance_notes.txt
+[INFO]	2026-03-16T20:47:20.031Z	657275d1-7b74-4973-be78-2a1e7749c626	CLEAN: No PII detected in public-research/ai_governance_notes.txt
+[INFO]	2026-03-16T20:47:20.031Z	657275d1-7b74-4973-be78-2a1e7749c626	Scanning: public-research/market_trends.txt
+[INFO]	2026-03-16T20:47:20.098Z	657275d1-7b74-4973-be78-2a1e7749c626	CLEAN: No PII detected in public-research/market_trends.txt
+[INFO]	2026-03-16T20:47:20.099Z	657275d1-7b74-4973-be78-2a1e7749c626	Scan complete: {
+  "overall_status": "CLEAN",
+  "bucket": "driftlock-ai-knowledge-lab-east1",
+  "prefix": "public-research/",
+  "total_documents_scanned": 2,
+  "clean": 2,
+  "pii_detected": 0,
+  "errors": 0,
+  "action_required": "None"
+}
+END RequestId: 657275d1-7b74-4973-be78-2a1e7749c626
+REPORT RequestId: 657275d1-7b74-4973-be78-2a1e7749c626	Duration: 495.91 ms	Billed Duration: 1025 ms	Memory Size: 128 MB	Max Memory Used: 90 MB	Init Duration: 528.95 ms
+
+Request ID: 657275d1-7b74-4973-be78-2a1e7749c626
