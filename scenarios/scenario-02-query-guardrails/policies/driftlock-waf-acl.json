@@ -1,0 +1,127 @@
+{
+    "Name": "driftlock-waf-acl",
+    "Id": "ac4531ae-1d72-442c-89b2-6d89bacd71f0",
+    "ARN": "arn:aws:wafv2:us-east-1:605893375580:regional/webacl/driftlock-waf-acl/ac4531ae-1d72-442c-89b2-6d89bacd71f0",
+    "DefaultAction": {
+        "Allow": {}
+    },
+    "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "driftlock-waf-acl"
+    },
+    "Description": "Scenario 02 - API protection layer for driftlock-guardrail-api HTTP endpoint",
+    "Rules": [
+        {
+            "Name": "AWS-AWSManagedRulesCommonRuleSet",
+            "Priority": 0,
+            "Statement": {
+                "ManagedRuleGroupStatement": {
+                    "VendorName": "AWS",
+                    "Name": "AWSManagedRulesCommonRuleSet"
+                }
+            },
+            "VisibilityConfig": {
+                "SampledRequestsEnabled": true,
+                "CloudWatchMetricsEnabled": true,
+                "MetricName": "AWS-AWSManagedRulesCommonRuleSet"
+            },
+            "OverrideAction": {
+                "None": {}
+            }
+        },
+        {
+            "Name": "AWS-AWSManagedRulesKnownBadInputsRuleSet",
+            "Priority": 1,
+            "Statement": {
+                "ManagedRuleGroupStatement": {
+                    "VendorName": "AWS",
+                    "Name": "AWSManagedRulesKnownBadInputsRuleSet"
+                }
+            },
+            "VisibilityConfig": {
+                "SampledRequestsEnabled": true,
+                "CloudWatchMetricsEnabled": true,
+                "MetricName": "AWS-AWSManagedRulesKnownBadInputsRuleSet"
+            },
+            "OverrideAction": {
+                "None": {}
+            }
+        },
+        {
+            "Name": "AWS-AWSManagedRulesAmazonIpReputationList",
+            "Priority": 2,
+            "Statement": {
+                "ManagedRuleGroupStatement": {
+                    "VendorName": "AWS",
+                    "Name": "AWSManagedRulesAmazonIpReputationList"
+                }
+            },
+            "VisibilityConfig": {
+                "SampledRequestsEnabled": true,
+                "CloudWatchMetricsEnabled": true,
+                "MetricName": "AWS-AWSManagedRulesAmazonIpReputationList"
+            },
+            "OverrideAction": {
+                "None": {}
+            }
+        },
+        {
+            "Name": "driftlock-rate-limit",
+            "Priority": 3,
+            "Statement": {
+                "RateBasedStatement": {
+                    "Limit": 100,
+                    "AggregateKeyType": "IP",
+                    "EvaluationWindowSec": 300
+                }
+            },
+            "VisibilityConfig": {
+                "SampledRequestsEnabled": true,
+                "CloudWatchMetricsEnabled": true,
+                "MetricName": "driftlock-rate-limit"
+            },
+            "Action": {
+                "Block": {
+                    "CustomResponse": {
+                        "ResponseCode": 429
+                    }
+                }
+            },
+            "RuleLabels": [
+                {
+                    "Name": "scenario02:rate-limited"
+                }
+            ]
+        }
+    ],
+    "Capacity": 928,
+    "ManagedByFirewallManager": false,
+    "LabelNamespace": "awswaf:605893375580:webacl:driftlock-waf-acl:",
+    "RetrofittedByFirewallManager": false,
+    "OnSourceDDoSProtectionConfig": {
+        "ALBLowReputationMode": "ACTIVE_UNDER_DDOS"
+    },
+    "ApplicationConfig": {
+        "Attributes": [
+            {
+                "Name": "ApplicationCategory",
+                "Values": [
+                    "apiAndIntegration"
+                ]
+            },
+            {
+                "Name": "TrafficSource",
+                "Values": [
+                    "api"
+                ]
+            },
+            {
+                "Name": "ProtectionsName",
+                "Values": [
+                    "BYO"
+                ]
+            }
+        ]
+    }
+}
