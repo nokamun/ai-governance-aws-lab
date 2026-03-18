@@ -1,0 +1,68 @@
+social security number
+account number
+routing number
+salary band
+compensation plan
+bonus structure
+equity grant
+performance review
+credit card number
+bank account
+product roadmap
+release schedule
+acquisition target
+unreleased feature
+internal memo
+strategic initiative
+go to market
+expansion plan
+revenue projection
+profit margin
+competitor analysis
+competitive advantage
+market share target
+win rate
+churn analysis
+date of birth
+passport number
+drivers license
+employee ID
+tax ID
+swift code
+IBAN number
+wire transfer
+payroll account
+direct deposit
+HSA account
+401k account
+brokerage account
+invoice number
+purchase order
+social security
+national ID
+resident alien
+visa number
+work permit
+security clearance
+background check
+fingerprint ID
+biometric data
+medical record
+home address
+personal email
+personal phone
+emergency contact
+next of kin
+date of hire
+termination date
+leave of absence
+disciplinary action
+exit interview
+shareholder report
+merger discussion
+due diligence
+letter of intent
+noncompete
+severance package
+litigation hold
+legal hold

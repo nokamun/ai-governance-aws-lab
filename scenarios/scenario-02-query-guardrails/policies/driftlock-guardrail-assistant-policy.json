@@ -1,0 +1,34 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowBedrockKnowledgeBaseQuery",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:RetrieveAndGenerate",
+                "bedrock:Retrieve",
+                "bedrock:InvokeModel"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:us-east-1:605893375580:knowledge-base/2FC12FO9Q8",
+                "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0"
+            ]
+        },
+        {
+            "Sid": "AllowBedrockGuardrail",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:ApplyGuardrail"
+            ],
+            "Resource": "arn:aws:bedrock:us-east-1:605893375580:guardrail/your-guardrail-id"
+        },
+        {
+            "Sid": "AllowCloudWatchMetrics",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:PutMetricData"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
