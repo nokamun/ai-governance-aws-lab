@@ -114,7 +114,7 @@ Inline Policies (2):
                 "bedrock:InvokeModel"
             ],
             "Resource": [
-                "arn:aws:bedrock:us-east-1:605893375580:knowledge-base/2FC12FO9Q8",
+                "arn:aws:bedrock:us-east-1:YOUR_ACCOUNT_ID:knowledge-base/YOUR_KB_ID",
                 "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0"
             ]
         },
@@ -124,7 +124,7 @@ Inline Policies (2):
             "Action": [
                 "bedrock:ApplyGuardrail"
             ],
-            "Resource": "arn:aws:bedrock:us-east-1:605893375580:guardrail/your-guardrail-id"
+            "Resource": "arn:aws:bedrock:us-east-1:YOUR_ACCOUNT_ID:guardrail/your-guardrail-id"
         },
         {
             "Sid": "AllowCloudWatchMetrics",
