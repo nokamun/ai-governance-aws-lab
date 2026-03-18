@@ -1,7 +1,7 @@
 {
     "Name": "driftlock-waf-acl",
     "Id": "ac4531ae-1d72-442c-89b2-6d89bacd71f0",
-    "ARN": "arn:aws:wafv2:us-east-1:605893375580:regional/webacl/driftlock-waf-acl/ac4531ae-1d72-442c-89b2-6d89bacd71f0",
+    "ARN": "arn:aws:wafv2:us-east-1:YOUR_ACCOUNT_ID:regional/webacl/driftlock-waf-acl/ac4531ae-1d72-442c-89b2-6d89bacd71f0",
     "DefaultAction": {
         "Allow": {}
     },
@@ -97,7 +97,7 @@
     ],
     "Capacity": 928,
     "ManagedByFirewallManager": false,
-    "LabelNamespace": "awswaf:605893375580:webacl:driftlock-waf-acl:",
+    "LabelNamespace": "awswaf:YOUR_ACCOUNT_ID:webacl:driftlock-waf-acl:",
     "RetrofittedByFirewallManager": false,
     "OnSourceDDoSProtectionConfig": {
         "ALBLowReputationMode": "ACTIVE_UNDER_DDOS"
