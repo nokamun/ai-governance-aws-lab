@@ -141,7 +141,7 @@ protected even if moved to a different folder or bucket.
                 "bedrock:InvokeModel"
             ],
             "Resource": [
-                "arn:aws:bedrock:us-east-1:605893375580:knowledge-base/2FC12FO9Q8",
+                "arn:aws:bedrock:us-east-1:YOUR_ACCOUNT_ID:knowledge-base/YOUR_KNOWLEDGE_BASE_ID",
                 "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0"
             ]
         }
@@ -198,7 +198,7 @@ The correct governance approach is:
             "Action": "sts:AssumeRole",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "605893375580"
+                    "aws:SourceAccount": "YOUR_ACCOUNT_ID"
                 }
             }
         }
