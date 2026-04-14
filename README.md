@@ -13,7 +13,7 @@ Each lab simulates real-world scenarios where AI capabilities must operate withi
 | # | Scenario | Key Services | Status |
 |---|---|---|---|
 | 01 | [Data Boundary Governance](scenarios/scenario-01-data-boundary-governance/README.md) | S3, IAM, Lambda, Bedrock, S3 Vectors | ✅ Complete |
-| 02 | Query Guardrails | Bedrock Guardrails, Macie, WAF, CloudWatch Alarms | ✅ Complete |
+| 02 | [Query Guardrails](scenarios/scenario-02-query-guardrails/README.md) | Bedrock Guardrails, Macie, WAF, CloudWatch Alarms | ✅ Complete |
 | 03 | OWASP LLM Attack Defense | Bedrock Guardrails, WAF, S3 Object Lock, S3 Versioning | 🔄 In Progress  |
 | 04 | Zero Trust AI Assistant | Verified Access, Cognito, Bedrock Agents | 📋 Planned |
 | 05 | Audit and Detection | GuardDuty, Security Hub, Detective, CloudTrail | 📋 Planned |
