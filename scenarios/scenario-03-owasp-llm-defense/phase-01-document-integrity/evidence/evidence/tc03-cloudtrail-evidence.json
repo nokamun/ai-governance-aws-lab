@@ -1,0 +1,60 @@
+{
+    "test_suite": "Scenario 03 — OWASP LLM Attack Defense",
+    "phase": "Phase 1 — Document Integrity Controls",
+    "owasp_category": "LLM03 — Training Data Poisoning",
+    "test_date": "2026-04-14",
+    "attacker_identity": "driftlock-svc-account",
+    "attacker_iam_permissions": "S3 read/write on all resources (simulates stolen credentials)",
+    "controls_tested": [
+        "S3 bucket policy explicit deny",
+        "S3 Object Lock Compliance mode",
+        "CloudTrail S3 data event logging"
+    ],
+    "results": [
+        {
+            "test_id": "TC03-B",
+            "description": "Demo bucket data poisoning attempt",
+            "attack_command": "aws s3 cp poison-attempt.txt s3://driftlock-owasp-demo/legitimate/ai_governance_sample.txt --profile svc-account",
+            "time": "2026-04-14T14:38:11Z",
+            "event": "PutObject",
+            "user": "driftlock-svc-account",
+            "resource": "driftlock-owasp-demo/legitimate/ai_governance_sample.txt",
+            "result": "AccessDenied",
+            "control_triggered": "Explicit deny in S3 bucket policy",
+            "pass": true
+        },
+        {
+            "test_id": "TC03-B2",
+            "description": "Production knowledge base poisoning attempt",
+            "attack_command": "aws s3 cp poison-attempt.txt s3://driftlock-ai-knowledge-lab-east1/public-research/ai_governance_notes.txt --profile svc-account",
+            "time": "2026-04-14T14:38:28Z",
+            "event": "PutObject",
+            "user": "driftlock-svc-account",
+            "resource": "driftlock-ai-knowledge-lab-east1/public-research/ai_governance_notes.txt",
+            "result": "AccessDenied",
+            "control_triggered": "Explicit deny in S3 bucket policy",
+            "pass": true
+        },
+        {
+            "test_id": "TC03-A",
+            "description": "Document deletion attempt",
+            "attack_command": "aws s3 rm s3://driftlock-owasp-demo/legitimate/ai_governance_sample.txt --profile svc-account",
+            "time": "2026-04-14T14:38:44Z",
+            "event": "DeleteObject",
+            "user": "driftlock-svc-account",
+            "resource": "driftlock-owasp-demo/legitimate/ai_governance_sample.txt",
+            "result": "AccessDenied",
+            "control_triggered": "Explicit deny in S3 bucket policy",
+            "pass": true
+        }
+    ],
+    "overall_result": "PASS",
+    "attack_pattern_note": "All three attacks executed within 33 seconds — consistent with coordinated stolen credential attack attempting multiple vectors before detection",
+    "key_findings": [
+        "IAM policy Allow does not override bucket policy explicit Deny",
+        "Object Lock default retention applies to attacker uploads as well as legitimate content",
+        "CloudTrail LookupEvents does not reliably surface S3 data events — raw log search required",
+        "CloudTrail trail home region must match LookupEvents query region"
+    ],
+    "investigation_method": "Raw CloudTrail log file search via AWS CLI and Python — see investigate-cloudtrail.sh"
+}
