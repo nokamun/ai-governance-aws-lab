@@ -70,39 +70,6 @@ Defense Depth → Multiple independent controls covering the same boundary
 
 ---
 
-## Repository Structure
-
-```
-ai-governance-aws-lab/
-├── README.md                              ← you are here
-│
-├── scenario-01-basic-data-boundary/
-│   ├── README.md                          ← architecture and validation
-│   ├── iam-permissions.md                 ← permissions log and lessons learned
-│   ├── lambda/
-│   │   ├── driftlock-ai-assistant.py      ← Track B: S3 direct access
-│   │   └── driftlock-bedrock-assistant.py ← Track A: Bedrock KB queries
-│   └── policies/
-│       ├── S3DataBoundaryPolicy.json       ← tag-based IAM policy
-│       └── driftlock-bedrock-kb-policy.json← Bedrock query permissions
-│
-├── scenario-02-query-guardrails/
-│   └── (in progress)
-│
-├── scenario-03-owasp-llm-defense/
-│   └── (coming soon)
-│
-├── scenario-04-zero-trust-ai-assistant/
-│   └── (coming soon)
-│
-├── scenario-05-audit-and-detection/
-│   └── (coming soon)
-│
-└── scenario-06-governed-data-lake/
-    └── (coming soon)
-```
-
----
 
 ## License
 
